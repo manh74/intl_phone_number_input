@@ -45,9 +45,15 @@ class SelectorButton extends StatelessWidget {
                     country: country,
                     showFlag: selectorConfig.showFlags,
                     useEmoji: selectorConfig.useEmoji,
+                    showArrowDownIcon:
+                        countries.isNotEmpty && countries.length > 1
+                            ? true
+                            : false,
                     leadingPadding: selectorConfig.leadingPadding,
                     trailingSpace: selectorConfig.trailingSpace,
                     textStyle: selectorTextStyle,
+                    decoration: selectorConfig.selectorDecoration,
+                    contentPadding: selectorConfig.selectorContentPadding,
                   ),
                   value: country,
                   items: mapCountryToDropdownItem(countries),
@@ -58,9 +64,13 @@ class SelectorButton extends StatelessWidget {
                 country: country,
                 showFlag: selectorConfig.showFlags,
                 useEmoji: selectorConfig.useEmoji,
+                showArrowDownIcon:
+                    countries.isNotEmpty && countries.length > 1 ? true : false,
                 leadingPadding: selectorConfig.leadingPadding,
                 trailingSpace: selectorConfig.trailingSpace,
                 textStyle: selectorTextStyle,
+                decoration: selectorConfig.selectorDecoration,
+                contentPadding: selectorConfig.selectorContentPadding,
               )
         : MaterialButton(
             key: Key(TestHelper.DropdownButtonKeyValue),
@@ -83,16 +93,17 @@ class SelectorButton extends StatelessWidget {
                     }
                   }
                 : null,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Item(
-                country: country,
-                showFlag: selectorConfig.showFlags,
-                useEmoji: selectorConfig.useEmoji,
-                leadingPadding: selectorConfig.leadingPadding,
-                trailingSpace: selectorConfig.trailingSpace,
-                textStyle: selectorTextStyle,
-              ),
+            child: Item(
+              country: country,
+              showFlag: selectorConfig.showFlags,
+              useEmoji: selectorConfig.useEmoji,
+              showArrowDownIcon:
+                  countries.isNotEmpty && countries.length > 1 ? true : false,
+              leadingPadding: selectorConfig.leadingPadding,
+              trailingSpace: selectorConfig.trailingSpace,
+              textStyle: selectorTextStyle,
+              decoration: selectorConfig.selectorDecoration,
+              contentPadding: selectorConfig.selectorContentPadding,
             ),
           );
   }

@@ -19,6 +19,9 @@ class SelectorConfig {
   /// [useEmoji], uses emoji flags instead of png assets
   final bool useEmoji;
 
+  /// [showArrowDownIcon], display an arrow down icon after country code
+  final bool showArrowDownIcon;
+
   /// [countryComparator], sort the country list according to the comparator.
   ///
   /// Sorting is disabled by default
@@ -30,16 +33,25 @@ class SelectorConfig {
   /// Space before the flag icon
   final double? leadingPadding;
 
+  /// Decoration the box
+  final Decoration? selectorDecoration;
+
   /// Add white space for short dial code
   final bool trailingSpace;
+
+  /// Add padding content
+  final EdgeInsetsGeometry? selectorContentPadding;
 
   const SelectorConfig({
     this.selectorType = PhoneInputSelectorType.DROPDOWN,
     this.showFlags = true,
     this.useEmoji = false,
+    this.showArrowDownIcon = true,
     this.countryComparator,
     this.setSelectorButtonAsPrefixIcon = false,
     this.leadingPadding,
     this.trailingSpace = true,
+    this.selectorDecoration,
+    this.selectorContentPadding,
   });
 }

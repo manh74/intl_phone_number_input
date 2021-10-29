@@ -416,7 +416,7 @@ class _InputWidgetView
             ),
             SizedBox(width: widget.spaceBetweenSelectorAndTextField),
           ],
-          Flexible(
+          Expanded(
             child: TextFormField(
               key: Key(TestHelper.TextInputKeyValue),
               textDirection: TextDirection.ltr,
@@ -442,17 +442,17 @@ class _InputWidgetView
                 LengthLimitingTextInputFormatter(widget.maxLength),
                 widget.formatInput
                     ? AsYouTypeFormatter(
-                        isoCode: countryCode,
-                        dialCode: dialCode,
-                        onInputFormatted: (TextEditingValue value) {
-                          state.controller!.value = value;
-                        },
-                      )
+                  isoCode: countryCode,
+                  dialCode: dialCode,
+                  onInputFormatted: (TextEditingValue value) {
+                    state.controller!.value = value;
+                  },
+                )
                     : FilteringTextInputFormatter.digitsOnly,
               ],
               onChanged: state.onChanged,
             ),
-          )
+          ),
         ],
       ),
     );
